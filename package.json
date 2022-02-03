@@ -1,0 +1,31 @@
+{
+  "name": "typescript-node-template",
+  "version": "1.0.0",
+  "author": "Uncle Abshir 👴🏾",
+  "license": "MIT",
+  "scripts": {
+    "test": "yarn jest",
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.5",
+    "lint-staged": "^12.1.4",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md}": "eslint --fix"
+  }
+}
