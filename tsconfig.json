@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["ESNext"],
     "outDir": "dist",
     "sourceMap": true,
     "allowJs": true
