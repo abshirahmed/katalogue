@@ -1,7 +1,7 @@
 import {
   gridTravellerMemoized,
   gridTravellerRecursive
-} from '../../src/gridTraveller';
+} from '../../../src/dynamicProgramming/gridTraveller';
 
 describe('Grid Traveller', () => {
   describe('Recursive', () => {

@@ -4,10 +4,6 @@ const config = {
   preset: 'ts-jest/presets/js-with-ts',
   testEnvironment: 'node',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  detectOpenHandles: true,
-  forceExit: true,
-  verbose: true,
-  clearMocks: true,
   collectCoverageFrom: ['<rootDir>/src/**/*']
 };
 

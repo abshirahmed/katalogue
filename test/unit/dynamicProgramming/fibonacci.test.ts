@@ -3,7 +3,7 @@ import {
   fibonacciMemoizedWithArray,
   fibonacciMemoizedWithObject,
   fibonacciRecursive
-} from '../../src/fibonacci';
+} from '../../../src/dynamicProgramming/fibonacci';
 
 describe('Fibonacci', () => {
   describe('Recursive', () => {
