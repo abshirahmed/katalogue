@@ -1,6 +1,7 @@
 import {
   fibonacciBottomUp,
-  fibonacciMemoized,
+  fibonacciMemoizedWithArray,
+  fibonacciMemoizedWithObject,
   fibonacciRecursive
 } from '../../src/fibonacci';
 
@@ -23,7 +24,7 @@ describe('Fibonacci', () => {
     );
   });
 
-  describe('Memoized', () => {
+  describe('Memoized with an Array', () => {
     it.each`
       n       | expectedValue
       ${1}    | ${1}
@@ -41,7 +42,30 @@ describe('Fibonacci', () => {
     `(
       'should return $expectedValue when n equals $n',
       function ({ n, expectedValue }) {
-        expect(fibonacciMemoized(n)).toEqual(expectedValue);
+        expect(fibonacciMemoizedWithArray(n)).toEqual(expectedValue);
+      }
+    );
+  });
+
+  describe('Memoized with an Object', () => {
+    it.each`
+      n       | expectedValue
+      ${1}    | ${1}
+      ${2}    | ${1}
+      ${5}    | ${5}
+      ${10}   | ${55}
+      ${20}   | ${6765}
+      ${30}   | ${832040}
+      ${40}   | ${102334155}
+      ${50}   | ${12586269025}
+      ${100}  | ${354224848179262000000}
+      ${1000} | ${4.346655768693743e208}
+      ${1476} | ${1.3069892237633987e308}
+      ${1477} | ${Infinity}
+    `(
+      'should return $expectedValue when n equals $n',
+      function ({ n, expectedValue }) {
+        expect(fibonacciMemoizedWithObject(n)).toEqual(expectedValue);
       }
     );
   });

@@ -1,3 +1,7 @@
+/**
+ * time complexity: O(n)
+ * space complexity: O(n)
+ */
 export function fibonacciBottomUp(n: number): number {
   if (n <= 2) {
     return 1;
@@ -11,23 +15,31 @@ export function fibonacciBottomUp(n: number): number {
   return sequence[n];
 }
 
-export function fibonacciMemoized(
+/**
+ * time complexity: O(n)
+ * space complexity: O(n)
+ */
+export function fibonacciMemoizedWithArray(
   n: number,
   memo = new Array<number>(n)
 ): number {
-  let result;
   if (memo[n]) {
     return memo[n];
   }
   if (n <= 2) {
-    result = 1;
+    return 1;
   } else {
-    result = fibonacciMemoized(n - 2, memo) + fibonacciMemoized(n - 1, memo);
+    memo[n] =
+      fibonacciMemoizedWithArray(n - 2, memo) +
+      fibonacciMemoizedWithArray(n - 1, memo);
   }
-  memo[n] = result;
-  return result;
+  return memo[n];
 }
 
+/**
+ * time complexity: O(2^n)
+ * space complexity: O(n)
+ */
 export function fibonacciRecursive(n: number): number {
   let result;
   if (n <= 2) {
@@ -36,4 +48,24 @@ export function fibonacciRecursive(n: number): number {
     result = fibonacciRecursive(n - 2) + fibonacciRecursive(n - 1);
   }
   return result;
+}
+
+/**
+ * time complexity: O(n)
+ * space complexity: O(n)
+ */
+export function fibonacciMemoizedWithObject(
+  n: number,
+  memo: Record<string, number> = {}
+) {
+  if (memo[n]) {
+    return memo[n];
+  }
+  if (n <= 2) {
+    return 1;
+  }
+  memo[n] =
+    fibonacciMemoizedWithObject(n - 1, memo) +
+    fibonacciMemoizedWithObject(n - 2, memo);
+  return memo[n];
 }
