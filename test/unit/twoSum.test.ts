@@ -10,9 +10,7 @@ describe('Two Sum', function () {
   `(
     'should return $expectedValue when nums = $nums and target = $target',
     ({ nums, target, expectedValue }) => {
-      const actualValue = twoSum(nums, target);
-
-      expect(actualValue).toMatchObject(expectedValue);
+      expect(twoSum(nums, target)).toEqual(expectedValue);
     }
   );
 });

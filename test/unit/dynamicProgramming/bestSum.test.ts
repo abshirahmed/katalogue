@@ -1,9 +1,10 @@
+import 'jest-extended';
 import {
   bestSumBruteForce,
   bestSumMemoized
 } from '../../../src/dynamicProgramming/bestSum';
 
-describe('Best sum', () => {
+describe('Best Sum', () => {
   describe('Brute force', () => {
     it.each`
       targetSum | numbers         | expectedValue
@@ -13,12 +14,13 @@ describe('Best sum', () => {
     `(
       'should return $expectedValue.sample when targetSum = $targetSum and numbers = $numbers',
       function ({ targetSum, numbers, expectedValue }) {
-        expect(bestSumBruteForce(targetSum, numbers)).toEqual(
-          expectedValue ? expect.arrayContaining(expectedValue) : expectedValue
+        expect(bestSumBruteForce(targetSum, numbers)).toIncludeSameMembers(
+          expectedValue
         );
       }
     );
   });
+
   describe('Memoized', () => {
     it.each`
       targetSum | numbers          | expectedValue
@@ -29,8 +31,8 @@ describe('Best sum', () => {
     `(
       'should return $expectedValue.sample when targetSum = $targetSum and numbers = $numbers',
       function ({ targetSum, numbers, expectedValue }) {
-        expect(bestSumMemoized(targetSum, numbers)).toEqual(
-          expectedValue ? expect.arrayContaining(expectedValue) : expectedValue
+        expect(bestSumMemoized(targetSum, numbers)).toIncludeSameMembers(
+          expectedValue
         );
       }
     );
