@@ -9,7 +9,7 @@
  * exponential
  *
  * space complexity: O(m^2)
- * linear
+ * quadratic
  */
 export function bestSumBruteForce(
   targetSum: number,
@@ -51,7 +51,7 @@ export function bestSumBruteForce(
  * polynomial/quadratic
  *
  * space complexity: O(m^2)
- * linear
+ * quadratic
  */
 export function bestSumMemoized(
   targetSum: number,
