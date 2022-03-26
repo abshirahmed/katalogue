@@ -1,10 +1,8 @@
 /** @type {import('@jest/types').Config.InitialOptions} */
-const config = {
+module.exports = {
   // https://kulshekhar.github.io/ts-jest/docs/getting-started/presets
-  preset: 'ts-jest/presets/js-with-ts',
+  preset: 'ts-jest',
   testEnvironment: 'node',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js', 'jest-extended/all'],
   collectCoverageFrom: ['<rootDir>/src/**/*']
 };
-
-module.exports = config;
