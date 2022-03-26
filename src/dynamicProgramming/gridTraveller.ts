@@ -1,6 +1,8 @@
 /**
  * time complexity: O(2^n+m)
+ * exponential
  * space complexity: O(n+m)
+ * linear
  */
 export function gridTravellerRecursive(m: number, n: number): number {
   if (m === 0 || n === 0) return 0;
@@ -10,7 +12,9 @@ export function gridTravellerRecursive(m: number, n: number): number {
 
 /**
  * time complexity: O(n*m)
+ *
  * space complexity: O(n+m)
+ * linear
  */
 export function gridTravellerMemoized(
   m: number,

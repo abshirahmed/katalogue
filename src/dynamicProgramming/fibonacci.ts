@@ -1,5 +1,6 @@
 /**
  * time complexity: O(n)
+ *
  * space complexity: O(n)
  */
 export function fibonacciBottomUp(n: number): number {
@@ -17,6 +18,7 @@ export function fibonacciBottomUp(n: number): number {
 
 /**
  * time complexity: O(n)
+ *
  * space complexity: O(n)
  */
 export function fibonacciMemoizedWithArray(
@@ -38,6 +40,7 @@ export function fibonacciMemoizedWithArray(
 
 /**
  * time complexity: O(2^n)
+ *
  * space complexity: O(n)
  */
 export function fibonacciRecursive(n: number): number {
@@ -52,6 +55,7 @@ export function fibonacciRecursive(n: number): number {
 
 /**
  * time complexity: O(n)
+ *
  * space complexity: O(n)
  */
 export function fibonacciMemoizedWithObject(

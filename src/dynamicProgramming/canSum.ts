@@ -1,9 +1,12 @@
 /**
- * m = targetSum
+ * m = target sum
+ *
  * n = array length
  *
  * time complexity: O(n^m)
+ *
  * space complexity: O(m)
+ * linear
  */
 export function canSumRecursive(targetSum: number, numbers: number[]): boolean {
   if (targetSum === 0) {
@@ -23,11 +26,14 @@ export function canSumRecursive(targetSum: number, numbers: number[]): boolean {
 }
 
 /**
- * m = targetSum
+ * m = target sum
+ *
  * n = array length
  *
  * time complexity: O(m*n)
+ *
  * space complexity: O(m)
+ * linear
  */
 export function canSumMemoized(
   targetSum: number,
