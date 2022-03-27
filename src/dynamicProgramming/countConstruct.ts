@@ -1,7 +1,6 @@
 /**
- * Function which returns a `boolean` indicating whether
- * a `targetString` can be constructed by concatenating
- * elements from a `wordBank` array.
+ * Function which returns the number of ways a `targetString`
+ * can be constructed by concatenating elements from a `wordBank` array.
  *
  * ---
  *
@@ -15,29 +14,26 @@
  * _n = wordBank length (tree height)_
  *
  */
-export function canConstructBruteForce(
+export function countConstructBruteForce(
   targetString: string,
   wordBank: string[]
-): boolean {
+): number {
   if (targetString === '') {
-    return true;
+    return 1;
   }
+  let totalCount = 0;
   for (const word of wordBank) {
     if (targetString.startsWith(word)) {
-      const suffix = targetString.slice(word.length); // additional m calls (worst case scenario)
-      if (canConstructBruteForce(suffix, wordBank)) {
-        return true;
-      }
+      const suffix = targetString.slice(word.length);
+      const constructCount = countConstructBruteForce(suffix, wordBank);
+      totalCount += constructCount;
     }
   }
-
-  return false;
+  return totalCount;
 }
-
 /**
- * Function which returns a `boolean` indicating whether
- * a `targetString` can be constructed by concatenating
- * elements from a `wordBank` array.
+ * Function which returns the `number` of ways a `targetString`
+ * can be constructed by concatenating elements from a `wordBank` array.
  *
  * ---
  *
@@ -51,26 +47,25 @@ export function canConstructBruteForce(
  * _n = wordBank length (tree height)_
  *
  */
-export function canConstructMemoized(
+export function countConstructMemoized(
   targetString: string,
   wordBank: string[],
-  memo: Record<string, boolean> = {}
-): boolean {
+  memo: Record<string, number> = {}
+): number {
   if (targetString in memo) {
     return memo[targetString];
   }
   if (targetString === '') {
-    return true;
+    return 1;
   }
+  let totalCount = 0;
   for (const word of wordBank) {
     if (targetString.startsWith(word)) {
-      const suffix = targetString.slice(word.length); // additional m calls (worst case scenario)
-      if (canConstructMemoized(suffix, wordBank, memo)) {
-        memo[targetString] = true;
-        return true;
-      }
+      const suffix = targetString.slice(word.length);
+      const constructCount = countConstructMemoized(suffix, wordBank, memo);
+      totalCount += constructCount;
     }
   }
-  memo[targetString] = false;
-  return false;
+  memo[targetString] = totalCount;
+  return totalCount;
 }

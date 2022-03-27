@@ -6,11 +6,10 @@ import {
 describe('Can Construct', () => {
   describe('Brute Force', () => {
     it.each`
-      targetString                       | wordBank                                          | expectedValue
-      ${'abcdef'}                        | ${['ab', 'abc', 'cd', 'def', 'abcd']}             | ${true}
-      ${'skateboard'}                    | ${['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']}  | ${false}
-      ${'enterapotentpot'}               | ${['a', 'p', 'ent', 'enter', 'ot', 'o', 't']}     | ${true}
-      ${'eeeeeeeeeeeeeeeeeeeeeeeeeeeef'} | ${['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeeee']} | ${false}
+      targetString         | wordBank                                         | expectedValue
+      ${'abcdef'}          | ${['ab', 'abc', 'cd', 'def', 'abcd']}            | ${true}
+      ${'skateboard'}      | ${['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']} | ${false}
+      ${'enterapotentpot'} | ${['a', 'p', 'ent', 'enter', 'ot', 'o', 't']}    | ${true}
     `(
       'should return $expectedValue when targetString = $targetString and wordBank = $wordBank',
       function ({ targetString, wordBank, expectedValue }) {
