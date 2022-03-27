@@ -73,3 +73,17 @@ export function fibonacciMemoizedWithObject(
     fibonacciMemoizedWithObject(n - 2, memo);
   return memo[n];
 }
+/**
+ * time complexity: O(n)
+ *
+ * space complexity: O(n)
+ */
+export function fibonacciTabulation(n: number): number {
+  const sequence = new Array(n + 1).fill(0);
+  sequence[1] = 1;
+  for (let i = 1; i < n; i++) {
+    sequence[i + 1] += sequence[i];
+    sequence[i + 2] += sequence[i];
+  }
+  return sequence[n];
+}

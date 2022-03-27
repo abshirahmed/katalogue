@@ -2,7 +2,8 @@ import {
   fibonacciBottomUp,
   fibonacciMemoizedWithArray,
   fibonacciMemoizedWithObject,
-  fibonacciRecursive
+  fibonacciRecursive,
+  fibonacciTabulation
 } from '../../../src/dynamicProgramming/fibonacci';
 
 describe('Fibonacci', () => {
@@ -88,6 +89,28 @@ describe('Fibonacci', () => {
       'should return $expectedValue when n equals $n',
       function ({ n, expectedValue }) {
         expect(fibonacciBottomUp(n)).toEqual(expectedValue);
+      }
+    );
+  });
+
+  describe('Tabulation', () => {
+    it.each`
+      n       | expectedValue
+      ${1}    | ${1}
+      ${2}    | ${1}
+      ${5}    | ${5}
+      ${10}   | ${55}
+      ${20}   | ${6765}
+      ${30}   | ${832040}
+      ${40}   | ${102334155}
+      ${50}   | ${12586269025}
+      ${1000} | ${4.346655768693743e208}
+      ${1476} | ${1.3069892237633987e308}
+      ${1477} | ${Infinity}
+    `(
+      'should return $expectedValue when n equals $n',
+      function ({ n, expectedValue }) {
+        expect(fibonacciTabulation(n)).toEqual(expectedValue);
       }
     );
   });
